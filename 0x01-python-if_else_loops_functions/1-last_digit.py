@@ -12,7 +12,7 @@ if last_digit == 0:
           "and is 0")
 elif last_digit < 6:
     print("Last digit of {} is {}".format(number, last_digit),
-          "and is and is less than 6")
+          "and is and is less than 6 and not 0")
 else:
     print("Last digit of {} is {}".format(number, last_digit), 
           "and is greater than 5")

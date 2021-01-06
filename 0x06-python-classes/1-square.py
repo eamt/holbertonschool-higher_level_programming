@@ -1,15 +1,15 @@
 #!/usr/bin/python3
-"""This is my first project with  documentation in Python """
+"""This is my first project with  documentation in python"""
 
 
 
 class Square:
-    """ class square that has attributes:
+    """Class square that has attributes:
         size
     """
 
     def __init__(self, size):
+        """The initialization of the method for the square class
         """
-        the initialization of the method for the square class
-        """
+
         self.__size = size

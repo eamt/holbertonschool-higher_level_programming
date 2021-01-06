@@ -1,16 +1,14 @@
 #!/usr/bin/python3
-
+"""module to create a class square"""
 
 class Square:
-    """
-    class square that has attributes:
+    """class square with attributes:
         size
-    some attributes are protected from input.
+        some attributes are protected from input.
     """
 
     def __init__(self, size=0):
-        """
-        initialization function for the square class
+        """initialization function for the square class
         """
 
         if type(size) != int:
@@ -21,8 +19,7 @@ class Square:
             self.__size = size
 
     def area(self):
-        """
-        calculate the area of the square
+        """calculate the area of the square
         """
 
         return self.__size ** 2

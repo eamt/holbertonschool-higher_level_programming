@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-
+"""This is my first project with  documentation in Python """
 
 class Square:
     """

@@ -2,7 +2,6 @@
 """This is my first project with  documentation in python"""
 
 
-
 class Square:
     """Class square that has attributes:
         size

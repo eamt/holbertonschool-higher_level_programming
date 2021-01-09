@@ -1,0 +1,66 @@
+==================
+0. Integer adition
+===================
+
+
+Import module
+    >>> add_integer = __import__("0-add_integer").add_integer
+
+add 2 integers positive or negative or float
+==============================================
+
+    >>> add_integer(5, 4)
+    9
+        
+    >>> add_integer(-5, 4)
+    -1
+
+    >>> add_integer(5, -4)
+    1
+
+    >>> add_integer(-5, -4)
+    -9
+
+    >>> add_integer(2, 1.5)
+    3
+
+    >>> add_integer(10.5, -5)
+    5
+
+
+Int max and min
+
+    >>> add_integer(2147483647, 0)
+    2147483647
+
+    >>> add_integer(-2147483648, 0)
+    -2147483648
+
+    >>> add_integer(2147483647, -2147483647)
+    0
+
+    >>> add_integer(-2147483648, 2147483647)
+    -1
+
+Utilizing the default value of b
+
+	  >>> add_integer(2)
+	  100
+
+String in the a argument    
+
+    >>> add_integer("takuma", 5)
+    Traceback (most recent call last):
+    TypeError: a must be an integer
+
+    String in the b argument.
+
+    >>> add_integer(2,"cebollita")
+    Traceback (most recent call last):
+    TypeError: b must be an integer
+
+    String in both arguments
+
+    >>> add_integer("juan","cebolla")
+    Traceback (most recent call last):
+    TypeError: a must be an integer

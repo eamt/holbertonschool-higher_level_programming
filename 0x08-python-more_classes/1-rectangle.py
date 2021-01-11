@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 '''Module to create a rectangle'''
 
+
 class Rectangle:
     '''Rectangle class'''
 
@@ -19,7 +20,7 @@ class Rectangle:
     def width(self, value):
         '''setter width'''
         if type(value) is not int:
-            raise typeError("width is not integer")
+            raise TypeError("width is not integer")
         if value < 0:
             raise TypeError("width must be >= 0")
         self.__width = value

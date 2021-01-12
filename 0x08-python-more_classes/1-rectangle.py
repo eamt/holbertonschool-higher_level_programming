@@ -1,17 +1,18 @@
 #!/usr/bin/python3
-"""Module to create a rectangle"""
+"""
+Module to create a rectangle
+
+"""
 
 
 class Rectangle:
     """Rectangle class"""
     def __init__(self, width=0, height=0):
-        
-        self.height = height
         self.width = width
+        self.height = height
 
     @property
     def width(self):
-        "this is"
         return self.__width
 
     @width.setter
@@ -31,7 +32,7 @@ class Rectangle:
 
     @height.setter
     def height(self, value):
-        """'setter height"""
+        """setter height"""
 
         if type(value) is not int:
             raise TypeError("height must be an integer")

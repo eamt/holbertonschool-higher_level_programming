@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 class Rectangle():
     """Module to create a rectangle"""
 

@@ -1,11 +1,11 @@
 class Rectangle():
-    """Module to creat a rectangle"""
+    """Module to create a rectangle"""
 
     number_of_instances = 0
     print_symbol = "#"
 
     def __init__(self, width=0, height=0):
-        """ setup attributes"""
+        """setup attributes"""
         self.width = width
         self.height = height
         Rectangle.number_of_instances += 1
@@ -54,7 +54,7 @@ class Rectangle():
         if not isinstance(value, int):
             raise TypeError("width must be an integer")
         elif value < 0:
-            raise TypeError("width must be >= 0")
+            raise ValueError("width must be >= 0")
         else:
             self.__width = value
 

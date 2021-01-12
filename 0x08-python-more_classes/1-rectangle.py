@@ -4,14 +4,14 @@
 
 class Rectangle:
     """Rectangle class"""
-
     def __init__(self, width=0, height=0):
         
-        self.width = width
         self.height = height
+        self.width = width
 
     @property
     def width(self):
+        "this is"
         return self.__width
 
     @width.setter

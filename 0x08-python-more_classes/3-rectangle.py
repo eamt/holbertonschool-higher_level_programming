@@ -1,14 +1,16 @@
 #!/usr/bin/python3
-'''Module to create a rectangle'''
+"""
+    Module to create a rectangle
+"""
 
 
 class Rectangle:
-    '''Rectangle class'''
+    """Rectangle class"""
 
     def __init__(self, width=0, height=0):
-        '''
+        """
             setup attributes
-        '''
+        """
         self.width = width
         self.height = height
 
@@ -18,7 +20,7 @@ class Rectangle:
 
     @width.setter
     def width(self, value):
-        '''setter width'''
+        """setter width"""
         if type(value) is not int:
             raise TypeError("width must be an integer")
         if value < 0:
@@ -27,12 +29,12 @@ class Rectangle:
 
     @property
     def height(self):
-        '''getter for heihgt property'''
+        """getter for heihgt property"""
         return self.__height
 
     @height.setter
     def height(self, value):
-        '''setter height'''
+        """setter heigh"""
         if type(value) is not int:
             raise TypeError("height must be an integer")
         if value < 0:
@@ -40,12 +42,14 @@ class Rectangle:
         self.__height = value
 
     def area(self):
-        """finding the area of the rectangle
+        """
+        finding the area of the rectangle
         """
         return self.__width * self.__height
 
     def perimeter(self):
-        """finding the perimeter of the rectangle
+        """
+        finding the perimeter of the rectangle
         """
         if self.__width == 0 or self.__height == 0:
             return 0

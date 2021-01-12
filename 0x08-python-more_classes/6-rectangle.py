@@ -1,15 +1,13 @@
 #!/usr/bin/python3
-'''Module to create a rectangle'''
+"""Module to create a rectangle"""
 
 
 class Rectangle:
-    '''Rectangle class'''
-    number_of_instances = 0;
+    """Rectangle class"""
+
+    number_of_instances = 0
 
     def __init__(self, width=0, height=0):
-        '''
-            setup attributes
-        '''
         self.width = width
         self.height = height
         Rectangle.number_of_instances += 1
@@ -53,9 +51,6 @@ class Rectangle:
             return 0
         return (self.__width + self.__height) * 2
    
-    """
-    Printing the Rectangle
-    """
     def area(self):
         return self.__height * self.__width
 

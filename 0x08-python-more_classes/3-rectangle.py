@@ -8,9 +8,6 @@ class Rectangle:
     """Rectangle class"""
 
     def __init__(self, width=0, height=0):
-        """
-            setup attributes
-        """
         self.width = width
         self.height = height
 
@@ -49,14 +46,14 @@ class Rectangle:
 
     def perimeter(self):
         """
-        finding the perimeter of the rectangle
+        finding the perimeter of the retangle
         """
         if self.__width == 0 or self.__height == 0:
             return 0
         return (self.__width + self.__height) * 2
    
     """
-    Printing the Rectangle
+    Printing the rectangle
     """
     def area(self):
         return self.__height * self.__width

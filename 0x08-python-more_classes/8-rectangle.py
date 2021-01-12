@@ -1,6 +1,9 @@
 #!/usr/bin/python3
-class Rectangle():
-    """Module to create a rectangle"""
+"""Module to create a rectangle"""
+
+
+class Rectangle:
+    """Retangle class"""
 
     number_of_instances = 0
     print_symbol = "#"

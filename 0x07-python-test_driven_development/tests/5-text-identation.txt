@@ -1,0 +1,32 @@
+Text identation
+===============
+
+This file provides cases for printing a newline instead of some puntuaction signs.
+
+>>> text_indentation = __import__('5-text_indentation').text_indentation
+
+Testing cases:
+
+>>> text_indentation("what should i do in here? how are u: fine")
+Testing this new feature.
+<BLANKLINE>
+What should i do?
+<BLANKLINE>
+how are u:
+<BLANKLINE>
+fine
+
+>>> text_indentation("")
+
+
+>>> text_indentation((44, 47))
+Traceback (most recent call last):
+TypeError: text must be a string
+
+>>> text_indentation(None)
+Traceback (most recent call last):
+TypeError: text must be a string
+
+>>> text_indentation({'loro': 'caballo'})
+Traceback (most recent call last):
+TypeError: text must be a string

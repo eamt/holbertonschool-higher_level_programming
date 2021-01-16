@@ -1,32 +1,46 @@
-Text identation
-===============
+=================================
+How use 5-text_indentation module
+=================================
 
-This file provides cases for printing a newline instead of some puntuaction signs.
+Using
+-----
 
->>> text_indentation = __import__('5-text_indentation').text_indentation
+Test for Succes Cases
 
-Testing cases:
+    >>> text_indentation = __import__('5-text_indentation').text_indentation
 
->>> text_indentation("what should i do in here? how are u: fine")
-Testing this new feature.
-<BLANKLINE>
-What should i do?
-<BLANKLINE>
-how are u:
-<BLANKLINE>
-fine
+    >>> text_indentation("This.is?a:string.")
+    This.
+    <BLANKLINE>
+    is?
+    <BLANKLINE>
+    a:
+    <BLANKLINE>
+    string.
+    <BLANKLINE>
 
->>> text_indentation("")
+Text must be a string
 
+    >>> text_indentation(35)
+    Traceback (most recent call last):
+        ...
+    TypeError: text must be a string
 
->>> text_indentation((44, 47))
-Traceback (most recent call last):
-TypeError: text must be a string
+Text may be an empty string
+    >>> text_indentation("")
 
->>> text_indentation(None)
-Traceback (most recent call last):
-TypeError: text must be a string
+    A string of all spaces will print nothing
+    >>> text_indentation("   ")
 
->>> text_indentation({'loro': 'caballo'})
-Traceback (most recent call last):
-TypeError: text must be a string
+Test leading spaces
+    >>> text_indentation("     Leading spaces")
+    Leading spaces
+
+Test following spaces
+    >>> text_indentation("Following spaces      ")
+    Following spaces      
+
+    >>> text_indentation()
+    Traceback (most recent call last):
+        ...
+    TypeError: text_indentation() missing 1 required positional argument: 'text'

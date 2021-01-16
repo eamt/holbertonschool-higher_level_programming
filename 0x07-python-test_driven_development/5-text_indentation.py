@@ -1,20 +1,27 @@
 #!/usr/bin/python3
 """
-    Function handbook:
+    "text_indentation" module.
 """
+
+
 def text_indentation(text):
-    """ The function split texts adding at newlines when  separators are find"""
-    if type(text) != str:
+    """Print a text with 2 new lines after each characters: ., ? and :.
+    """
+    if not isinstance(text, str):
         raise TypeError("text must be a string")
-    i = 0
-    total = len(text)
-    while i < total:
-        if text[0] == ' ':
-            pass
-        if text[i] == '.' or text[i] == ':' or text[i] == "?":
-            print("{}{}".format(text[i],'\n'))
-            i += 2
-        print("{}".format(text[i]), end="")
-        i += 1
-        if text[total -1] == ' ':
-            pass
+    text = text.strip()
+    spc = 0
+    for i in text:
+        if i == '.' or i == '?' or i == ':':
+            print("{:s}".format(i), end="")
+            print()
+            print()
+            spc = 1
+        else:
+            if not spc:
+                print("{:s}".format(i), end="")
+            else:
+                if i == ' ' or i == '\t':
+                    continue
+                print("{:s}".format(i), end="")
+                spc = 0

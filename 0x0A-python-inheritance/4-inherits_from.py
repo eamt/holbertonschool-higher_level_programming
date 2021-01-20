@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-"""object instance of a class that inherited (directlyorindirectly) from class
+"""
+object instance of a class that inherited (directlyorindirectly) from class
 """
 
 

@@ -3,6 +3,7 @@
 Module to define a class named MyList
 """
 
+
 class MyList(list):
     """A class named MyList"""
 

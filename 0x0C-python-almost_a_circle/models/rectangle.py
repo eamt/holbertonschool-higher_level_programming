@@ -34,7 +34,7 @@ class Rectangle(Base):
     def width(self):
         """Getter of the width attribute
         Returns:
-            the width of the instance
+            The width of the instance
         """
 
         return self.__width
@@ -43,7 +43,7 @@ class Rectangle(Base):
     def width(self, value):
         """Setter for the width attribute
         Args:
-            value (int): value to set to width
+            Value (int): value to set to width
         """
 
         if type(value) is not int:
@@ -56,7 +56,7 @@ class Rectangle(Base):
     def height(self):
         """Getter for the height attribute
         Returns:
-            the height of the instance
+            Height of the instance
         """
 
         return self.__height
@@ -65,7 +65,7 @@ class Rectangle(Base):
     def height(self, value):
         """Setter for the height attribute
         Args:
-            value (int): the value to set the height to
+            Value (int): the value to set the height to
         """
 
         if type(value) is not int:
@@ -78,7 +78,7 @@ class Rectangle(Base):
     def x(self):
         """Getter for the x attribute
         Returns:
-            the x attribute of the instance
+            X attribute of the instance
         """
 
         return self.__x
@@ -100,7 +100,7 @@ class Rectangle(Base):
     def y(self):
         """Getter for the y attribute
         Returns:
-            the y attribute of the instance
+            Y attribute of the instance
         """
 
         return self.__y
@@ -109,7 +109,7 @@ class Rectangle(Base):
     def y(self, value):
         """Setter of the y attribute
         Args:
-            value (int): the value to set the y attribute to
+            Value (int): value to set the y attribute to
         """
 
         if type(value) is not int:
@@ -170,3 +170,18 @@ class Rectangle(Base):
                         self.x = kwargs['x']
                     if i == 'y':
                         self.y = kwargs['y']
+                
+
+     def to_dictionary(self):
+        """Returns a dictionary representation of the object
+        Returns:
+            A dictionary that contain the object attributes
+        """
+
+        dictionary = {}
+        dictionary['id'] = self.id
+        dictionary['width'] = self.width
+        dictionary['height'] = self.height
+        dictionary['x'] = self.x
+        dictionary['y'] = self.y
+        return dictionary

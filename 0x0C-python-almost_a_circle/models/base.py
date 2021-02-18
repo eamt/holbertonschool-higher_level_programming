@@ -76,3 +76,18 @@ class Base:
             return list_instances
         except:
             return list_instances
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """Creates instances based on a list of instances from csv file"""
+        list_instances = []
+        try:
+            with open(cls.__name__ + '.csv', encoding='utf-8') as file:
+                reader = csv.DictReader(file, delimiter=',')
+                for row in reader:
+                    for key, value in row.items():
+                        row[key] = int(row[key])
+                    list_instances.append(cls.create(**row))
+                return list_instances
+        except:
+            return list_instances

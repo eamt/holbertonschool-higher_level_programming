@@ -1,187 +1,114 @@
 #!/usr/bin/python3
-"""Rectangle class"""
+"""Rectangle module"""
 
 
 from models.base import Base
 
 
 class Rectangle(Base):
+    """Rectangle class"""
 
-    """Rectangle class which inherits from Base class"""
 
     def __init__(self, width, height, x=0, y=0, id=None):
-        """Instantiation of Rectangle
-        Args:
-            width (int): Rectangle width
-            height (int): Rectangle height
-            x (int): the x coordinate of the rectangle
-            y (int): the y coordinate of the rectangle
-            id (int): Rectangle id
-        """
-
+        """Init Builder"""
         super().__init__(id)
         self.width = width
         self.height = height
         self.x = x
         self.y = y
-    def __str__(self):
-        """Overloads the __str__ method to print specific syntax"""
-
-        return "[Rectangle] ({}) {}/{} - {}/{}".format(
-            self.id, self.x, self.y, self.width, self.height)
 
     @property
     def width(self):
-        """Getter of the width attribute
-        Returns:
-            The width of the instance
-        """
-
+        """Width getter"""
         return self.__width
 
     @width.setter
-    def width(self, value):
-        """Setter for the width attribute
-        Args:
-            Value (int): value to set to width
-        """
-
-        if type(value) is not int:
-            raise TypeError("width must be an integer")
-        if value <= 0:
-            raise ValueError("width must be > 0")
-        self.__width = value
+    def width(self, width):
+        """Width setter"""
+        if not isinstance(width, int):
+            raise TypeError('width must be an integer')
+        if width <= 0:
+            raise ValueError('width must be > 0')
+        self.__width = width
 
     @property
     def height(self):
-        """Getter for the height attribute
-        Returns:
-            Height of the instance
-        """
-
+        """Height getter"""
         return self.__height
 
     @height.setter
-    def height(self, value):
-        """Setter for the height attribute
-        Args:
-            Value (int): the value to set the height to
-        """
-
-        if type(value) is not int:
-            raise TypeError("height must be an integer")
-        if value <= 0:
-            raise ValueError("height must be > 0")
-        self.__height = value
+    def height(self, height):
+        """Height setter"""
+        if not isinstance(height, int):
+            raise TypeError('height must be an integer')
+        if height <= 0:
+            raise ValueError('height must be > 0')
+        self.__height = height
 
     @property
     def x(self):
-        """Getter for the x attribute
-        Returns:
-            X attribute of the instance
-        """
-
+        """x getter"""
         return self.__x
 
     @x.setter
-    def x(self, value):
-        """Setter for the x attribute
-        Args:
-            value (int): the value to set the x attribute to
-        """
-
-        if type(value) is not int:
-            raise TypeError("x must be an integer")
-        if value < 0:
-            raise ValueError("x must be >= 0")
-        self.__x = value
+    def x(self, x):
+        """x setter"""
+        if not isinstance(x, int):
+            raise TypeError('x must be an integer')
+        if x < 0:
+            raise ValueError('x must be >= 0')
+        self.__x = x
 
     @property
     def y(self):
-        """Getter for the y attribute
-        Returns:
-            Y attribute of the instance
-        """
-
+        """y getter"""
         return self.__y
-
     @y.setter
-    def y(self, value):
-        """Setter of the y attribute
-        Args:
-            Value (int): value to set the y attribute to
-        """
-
-        if type(value) is not int:
-            raise TypeError("y must be an integer")
-        if value < 0:
-            raise ValueError("y must be >= 0")
-        self.__y = value
+    def y(self, y):
+        """y setter"""
+        if not isinstance(y, int):
+            raise TypeError('y must be an integer')
+        if y < 0:
+            raise ValueError('y must be >= 0')
+        self.__y = y
 
     def area(self):
-        """Area of the rectangle instance
-        Returns:
-            the area of the current rectangle instance
-        """
-
+        """Returns the area (width * height)"""
         return self.__width * self.__height
 
     def display(self):
-        """Displays the rectangle with a # sign
-        """
-        for y in range(self.__y):
-            print()
+        """Prints the informal representation of Rectangle"""
+        print("\n" * self.__y, end='')
         for i in range(self.__height):
-            for x in range(self.__x):
-                print(' ', end="")
-            for j in range(self.__width):
-                print('#', end="")
-            print()
+            print(" " * self.__x, end='')
+            print("#" * self.__width)
+
+    def __str__(self):
+        """Returns the formal representation of Rectangle"""
+        string = "[Rectangle] ({}) {}/{}" \
+                 " - {}/{}".format(self.id, self.__x,
+                                   self.__y, self.__width, self.height)
+        return string
+
+
     def update(self, *args, **kwargs):
-        """Updates the attributes in a list *args or **kwargs
-        Args:
-            *args (list): non-keyworded argument list
-            **kwargs (dict): keyworded argument list
-        """
-
-        if len(args) > 0:
+        """Updates  Rectangle attributes"""
+        attribute_list = ["id", "width", "height", "x", "y"]
+        if args is not None and len(args) > 0:
             for i in range(len(args)):
-                if i == 0:
-                    self.id = args[0]
-                if i == 1:
-                    self.width = args[1]
-                if i == 2:
-                    self.height = args[2]
-                if i == 3:
-                    self.x = args[3]
-                if i == 4:
-                    self.y = args[4]
+                if i >= len(attribute_list):
+                    break
+                setattr(self, attribute_list[i], args[i])
         else:
-            if len(kwargs) > 0:
-                keys = kwargs.keys()
-                for i in keys:
-                    if i == 'id':
-                        self.id = kwargs['id']
-                    if i == 'width':
-                        self.width = kwargs['width']
-                    if i == 'height':
-                        self.height = kwargs['height']
-                    if i == 'x':
-                        self.x = kwargs['x']
-                    if i == 'y':
-                        self.y = kwargs['y']
-                
+            for key, value in kwargs.items():
+                if key in attribute_list:
+                    setattr(self, key, value)
 
-     def to_dictionary(self):
-        """Returns a dictionary representation of the object
-        Returns:
-            A dictionary that contain the object attributes
-        """
 
-        dictionary = {}
-        dictionary['id'] = self.id
-        dictionary['width'] = self.width
-        dictionary['height'] = self.height
-        dictionary['x'] = self.x
-        dictionary['y'] = self.y
-        return dictionary
+    def to_dictionary(self):
+        """Return  dictionary attributes"""
+        attribute_list = ["id", "width", "height", "y"]
+        attribute_dict = dict()
+        for i in attribute_list:
+            attribute_dict[i] = getattr(self, i)
+        return attribute_dict

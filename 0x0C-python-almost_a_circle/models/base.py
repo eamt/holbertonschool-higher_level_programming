@@ -46,3 +46,11 @@ class Base:
         file_name = "{}.json".format(cls.__name__)
         with open(file_name, 'w', encoding='utf-8') as file:
             file.write(json_string)
+
+    @staticmethod
+    def from_json_string(json_string):
+        """Converts json to string"""
+        if json_string is None or len(json_string) == 0:
+            return []
+        else:
+            return json.loads(json_string)

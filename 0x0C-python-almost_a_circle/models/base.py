@@ -54,3 +54,25 @@ class Base:
             return []
         else:
             return json.loads(json_string)
+
+    def create(cls, **dictionary):
+        """Create a new instance based on a class and dictionary"""
+        if cls.__name__ == 'Rectangle':
+            new_instance = cls(1, 1)
+        elif cls.__name__ == 'Square':
+            new_instance = cls(1)
+        cls.update(new_instance, **dictionary)
+        return new_instance
+    
+    def load_from_file(cls):
+        """Create instances based on a list of instances from json file"""
+        try:
+            list_instances = []
+            with open(cls.__name__ + '.json', 'r', encoding='utf-8') as f:
+                json_string = f.read()
+                list_attributes = Base.from_json_string(json_string)
+            for dictionary in list_attributes:
+                list_instances.append(cls.create(**dictionary))
+            return list_instances
+        except:
+            return list_instances
